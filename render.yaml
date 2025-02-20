@@ -1,20 +1,21 @@
 databases:
-  - name: mysitedb
+  - name: fpl-moneyballdb
     plan: free
-    databaseName: mysite
-    user: mysite
+    databaseName: fpl-moneyball
+    user: fpl-moneyball
 
 services:
   - type: web
     plan: free
-    name: mysite
+    name: fpl-moneyball
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "python -m gunicorn fpl-moneyball.asgi:application -k uvicorn.workers.UvicornWorker"
+    rootDir: fpl-moneyball
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysitedb
+          name: fpl-moneyballdb
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
