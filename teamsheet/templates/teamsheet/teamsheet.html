@@ -4,5 +4,51 @@
 
 {% block content %}
     <h1>Team Sheet</h1>
-
+    <div class="team-sheet">
+        <div class="row goalkeeper">
+            {% for player in players|slice:":1" %}
+                <div class="player">
+                    <img src="{{ player.shirt_image }}" alt="{{ player.name }}'s shirt">
+                    <p class="player-name">{{ player.name }}</p>
+                    <p class="fixture">{{ player.fixture }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row defenders">
+            {% for player in players|slice:"1:6" %}
+                <div class="player">
+                    <img src="{{ player.shirt_image }}" alt="{{ player.name }}'s shirt">
+                    <p class="player-name">{{ player.name }}</p>
+                    <p class="fixture">{{ player.fixture }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row midfielders">
+            {% for player in players|slice:"6:11" %}
+                <div class="player">
+                    <img src="{{ player.shirt_image }}" alt="{{ player.name }}'s shirt">
+                    <p class="player-name">{{ player.name }}</p>
+                    <p class="fixture">{{ player.fixture }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row forwards">
+            {% for player in players|slice:"11:14" %}
+                <div class="player">
+                    <img src="{{ player.shirt_image }}" alt="{{ player.name }}'s shirt">
+                    <p class="player-name">{{ player.name }}</p>
+                    <p class="fixture">{{ player.fixture }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row bench">
+            {% for player in players|slice:"14:" %}
+                <div class="player">
+                    <img src="{{ player.shirt_image }}" alt="{{ player.name }}'s shirt">
+                    <p class="player-name">{{ player.name }}</p>
+                    <p class="fixture">{{ player.fixture }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
