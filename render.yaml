@@ -11,7 +11,6 @@ services:
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn fpl-moneyball.asgi:application -k uvicorn.workers.UvicornWorker"
-    rootDir: fpl-moneyball
     envVars:
       - key: DATABASE_URL
         fromDatabase:
